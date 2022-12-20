@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="admin.css" />
+</head>
+
+<body>
+    <h2><img src="agfaLogo.jpg" alt="AGFA Logo" /></h2>
+    <div class="warpper">
+        <input class="radio" id="one" name="group" type="radio" checked />
+        <input class="radio" id="two" name="group" type="radio" />
+
+        <div class="tabs">
+            <label class="tab1" id="one-tab" for="one">Admin</label>
+            <label class="tab1" id="two-tab" for="two">Instructor</label>
+        </div>
+
+        <div class="panels">
+            <div class="panel" id="one-panel">
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'Add Site')" id="defaultOpen">
+                        Add Site
+                    </button>
+                    <button class="tablinks" onclick="openCity(event, 'Add Role')">
+                        Add Role
+                    </button>
+                    <button class="tablinks" onclick="openCity(event, 'View Calendar')">
+                        View Calendar
+                    </button>
+                    <button class="tablinks" onclick="openCity(event, 'Upload Files')">
+                        Upload Files
+                    </button>
+                </div>
+
+                <div id="Add Site" class="tabcontent">
+                    <h3>ADD NEW SITE</h3>
+                    <!-- form tag to create form -->
+                    <form name="add_site" form action="addSite.php" method="post">
+                        Site Name
+
+                        <br />
+
+                        <input type="text" placeholder="Enter Site Name" name="site_name" />
+
+                        <br /><br /> Select Week
+
+                        <br /> From: <input type="date" id="start_date" name="start_date" /> To:
+                        <input type="date" id="end_date" name="end_date" />
+
+                        <br /><br />
+
+                        <input type="submit" name="submit" value="Submit" />
+                    </form>
+                </div>
+                <div id="Add Role" class="tabcontent">
+                    <h3>ADD NEW ROLE</h3>
+                    <!-- form tag to create form -->
+                    <form name="add_role" form action="addRole.php" method="post">
+                        Role Name
+
+                        <br />
+
+                        <input type="text" placeholder="Enter Role Name" name="role_name" />
+
+                        <br /><br /> Select Number of Seats
+
+                        <br /> <input type="number" min="1" name="num_seats" />
+
+                        <br /><br />
+
+                        <input type="submit" name="submit" value="Submit" />
+                    </form>
+                </div>
+                <div id="View Calendar" class="tabcontent">
+                    <h3>VIEW CALENDAR</h3>
+                    <p>[Placeholder]</p>
+                </div>
+                <div id="Upload Files" class="tabcontent">
+                    <h3>UPLOAD FILES</h3>
+                    <p>[Placeholder]</p>
+                </div>
+            </div>
+            <div class="panel" id="two-panel">
+                <div class="panel-title">Instructor View</div>
+                <p>[Placeholder]</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+
+</html>
